@@ -5,9 +5,11 @@ import PostCard from "../components/PostCard";
 import BottomNav from "../components/BottomNav";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
 
   const featuredCourses = [
     {
@@ -60,7 +62,12 @@ const Index = () => {
       <header className="bg-primary text-white py-6 px-4">
         <div className="flex justify-between items-center mb-4">
           <h1 className="text-2xl font-bold">Unify</h1>
-          <Button variant="ghost" size="icon" className="text-white">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="text-white"
+            onClick={() => navigate('/notifications')}
+          >
             <Bell className="h-6 w-6" />
           </Button>
         </div>
