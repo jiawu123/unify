@@ -2,6 +2,7 @@ import { Star, Users, ThumbsUp, MessageSquare, BookOpen } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import ShareDialog from "./ShareDialog";
 
 interface CourseCardProps {
   code: string;
@@ -64,13 +65,16 @@ const CourseCard = ({
               <span>{likes}</span>
             </div>
           </div>
-          <Button 
-            variant="outline" 
-            size="sm"
-            onClick={() => navigate(`/course/${code.toLowerCase().replace(' ', '-')}`)}
-          >
-            View Details
-          </Button>
+          <div className="flex gap-2">
+            <ShareDialog courseCode={code} courseTitle={title} />
+            <Button 
+              variant="outline" 
+              size="sm"
+              onClick={() => navigate(`/course/${code.toLowerCase().replace(' ', '-')}`)}
+            >
+              View Details
+            </Button>
+          </div>
         </div>
       </div>
     </Card>
