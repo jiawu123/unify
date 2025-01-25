@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Bell } from "lucide-react";
+import { Bell, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PostCard from "@/components/PostCard";
+import { useNavigate } from "react-router-dom";
 
 const SavedPosts = () => {
-  // This would typically come from an API/database
+  const navigate = useNavigate();
   const [savedPosts] = useState([
     {
       title: "Introduction to Computer Science",
@@ -34,7 +35,17 @@ const SavedPosts = () => {
     <div className="min-h-screen bg-gray-50 pb-20">
       <header className="bg-primary text-white py-6 px-4">
         <div className="flex justify-between items-center max-w-7xl mx-auto">
-          <h1 className="text-2xl font-bold">Unify</h1>
+          <div className="flex items-center gap-4">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => navigate(-1)}
+              className="text-white"
+            >
+              <ArrowLeft className="h-6 w-6" />
+            </Button>
+            <h1 className="text-2xl font-bold">Unify</h1>
+          </div>
           <Button variant="ghost" size="icon" className="text-white">
             <Bell className="h-6 w-6" />
           </Button>
