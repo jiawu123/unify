@@ -1,6 +1,7 @@
 import { ThumbsUp, MessageSquare, Share2, BookOpen, User } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import ShareDialog from "./ShareDialog";
 
 interface PostCardProps {
   title: string;
@@ -73,10 +74,7 @@ const PostCard = ({
             <MessageSquare className="w-4 h-4 mr-1" />
             {comments}
           </Button>
-          <Button variant="ghost" size="sm" className="text-gray-600">
-            <Share2 className="w-4 h-4 mr-1" />
-            Share
-          </Button>
+          <ShareDialog courseCode={title} courseTitle={title} />
         </div>
       </div>
     </Card>
