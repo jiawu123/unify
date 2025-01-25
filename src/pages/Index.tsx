@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { Search, TrendingUp, Sparkles } from "lucide-react";
+import { Search, TrendingUp, Sparkles, Bell } from "lucide-react";
 import CourseCard from "../components/CourseCard";
 import PostCard from "../components/PostCard";
 import BottomNav from "../components/BottomNav";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -59,7 +58,12 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gray-50 pb-20">
       <header className="bg-primary text-white py-6 px-4">
-        <h1 className="text-2xl font-bold mb-4">CourseCompass</h1>
+        <div className="flex justify-between items-center mb-4">
+          <h1 className="text-2xl font-bold">Unify</h1>
+          <Button variant="ghost" size="icon" className="text-white">
+            <Bell className="h-6 w-6" />
+          </Button>
+        </div>
         <div className="relative flex gap-2">
           <Input
             type="text"
