@@ -8,6 +8,7 @@ import NewPost from "./pages/NewPost";
 import SavedPosts from "./pages/SavedPosts";
 import Profile from "./pages/Profile";
 import CourseDetail from "./pages/CourseDetail";
+import PostDetail from "./pages/PostDetail";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/saved" element={<SavedPosts />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/course/:id" element={<CourseDetail />} />
+          <Route path="/post/:id" element={<PostDetail />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

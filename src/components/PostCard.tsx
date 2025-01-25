@@ -2,6 +2,7 @@ import { ThumbsUp, MessageSquare, Share2, BookOpen, User } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import ShareDialog from "./ShareDialog";
+import { useNavigate } from "react-router-dom";
 
 interface PostCardProps {
   title: string;
@@ -26,8 +27,13 @@ const PostCard = ({
   timestamp,
   type,
 }: PostCardProps) => {
+  const navigate = useNavigate();
+
   return (
-    <Card className="mb-4 hover:shadow-lg transition-shadow">
+    <Card 
+      className="mb-4 hover:shadow-lg transition-shadow cursor-pointer"
+      onClick={() => navigate(`/post/${encodeURIComponent(title)}`)}
+    >
       <div className="p-4">
         <div className="flex items-start justify-between mb-3">
           <div className="flex items-center gap-2">
@@ -65,7 +71,7 @@ const PostCard = ({
           ))}
         </div>
         
-        <div className="flex gap-4">
+        <div className="flex gap-4" onClick={(e) => e.stopPropagation()}>
           <Button variant="ghost" size="sm" className="text-gray-600">
             <ThumbsUp className="w-4 h-4 mr-1" />
             {likes}
