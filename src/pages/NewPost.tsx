@@ -44,21 +44,28 @@ const NewPost = () => {
     navigate("/");
   };
 
-  const careerPaths = [
-    "Software Engineer",
-    "Data Scientist",
-    "Product Manager",
-    "UX Designer",
-    "Business Analyst"
-  ];
+</lov-replace>
 
-  const handleCareerPathClick = (path: string) => {
-    const currentTags = tags.split(",").map(tag => tag.trim()).filter(Boolean);
-    if (!currentTags.includes(path)) {
-      const newTags = [...currentTags, path];
-      setTags(newTags.join(", "));
-    }
-  };
+<lov-search>
+          <div className="mt-2">
+            <Label className="text-sm text-muted-foreground">Career Paths:</Label>
+            <div className="flex flex-wrap gap-2 mt-1">
+              {careerPaths.map((path) => (
+                <Button
+                  key={path}
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={() => handleCareerPathClick(path)}
+                  className="text-xs"
+                >
+                  {path}
+                </Button>
+              ))}
+            </div>
+          </div>
+</lov-search>
+<lov-replace>
 
   return (
     <div className="max-w-2xl mx-auto p-4 space-y-6">
