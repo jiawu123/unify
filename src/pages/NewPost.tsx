@@ -5,7 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { BookOpen, User } from "lucide-react";
+import { ArrowLeft, BookOpen, User } from "lucide-react";
 
 const NewPost = () => {
   const navigate = useNavigate();
@@ -44,9 +44,35 @@ const NewPost = () => {
     navigate("/");
   };
 
+  const careerPaths = [
+    "Software Engineer",
+    "Data Scientist",
+    "Product Manager",
+    "UX Designer",
+    "Business Analyst"
+  ];
+
+  const handleCareerPathClick = (path: string) => {
+    const currentTags = tags.split(",").map(tag => tag.trim()).filter(Boolean);
+    if (!currentTags.includes(path)) {
+      const newTags = [...currentTags, path];
+      setTags(newTags.join(", "));
+    }
+  };
+
   return (
     <div className="max-w-2xl mx-auto p-4 space-y-6">
-      <h1 className="text-2xl font-bold text-center mb-6">Create New Post</h1>
+      <div className="flex items-center mb-6">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => navigate(-1)}
+          className="mr-4"
+        >
+          <ArrowLeft className="h-6 w-6" />
+        </Button>
+        <h1 className="text-2xl font-bold">Create New Post</h1>
+      </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-2">
@@ -102,8 +128,25 @@ const NewPost = () => {
             id="tags"
             value={tags}
             onChange={(e) => setTags(e.target.value)}
-            placeholder="e.g., CS101, Programming, Homework"
+            placeholder="e.g., CS101, Programming, Software Engineer"
           />
+          <div className="mt-2">
+            <Label className="text-sm text-muted-foreground">Career Paths:</Label>
+            <div className="flex flex-wrap gap-2 mt-1">
+              {careerPaths.map((path) => (
+                <Button
+                  key={path}
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={() => handleCareerPathClick(path)}
+                  className="text-xs"
+                >
+                  {path}
+                </Button>
+              ))}
+            </div>
+          </div>
         </div>
 
         <div className="flex gap-4">
