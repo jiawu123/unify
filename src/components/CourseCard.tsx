@@ -1,6 +1,7 @@
 import { Star, Users, ThumbsUp, MessageSquare, BookOpen } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 interface CourseCardProps {
   code: string;
@@ -21,6 +22,8 @@ const CourseCard = ({
   likes,
   tags,
 }: CourseCardProps) => {
+  const navigate = useNavigate();
+
   return (
     <Card className="hover:shadow-lg transition-shadow">
       <div className="p-4">
@@ -61,7 +64,11 @@ const CourseCard = ({
               <span>{likes}</span>
             </div>
           </div>
-          <Button variant="outline" size="sm">
+          <Button 
+            variant="outline" 
+            size="sm"
+            onClick={() => navigate(`/course/${code.toLowerCase().replace(' ', '-')}`)}
+          >
             View Details
           </Button>
         </div>
