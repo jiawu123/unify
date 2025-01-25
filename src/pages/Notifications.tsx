@@ -19,16 +19,6 @@ const Notifications = () => {
       link: "/post/1",
     },
     {
-      id: 2,
-      type: "question",
-      user: "Sarah Johnson",
-      avatar: "/placeholder.svg",
-      content: "asked about your experience in ENGL 131",
-      timestamp: "5h ago",
-      read: false,
-      link: "/course/2",
-    },
-    {
       id: 3,
       type: "invitation",
       user: "Mike Wilson",
