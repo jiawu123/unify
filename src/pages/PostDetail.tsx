@@ -1,4 +1,4 @@
-import { ArrowLeft, ThumbsUp, MessageSquare, Share2 } from "lucide-react";
+import { ArrowLeft, ThumbsUp, MessageSquare, Share2, Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useNavigate, useParams } from "react-router-dom";
@@ -38,18 +38,33 @@ const PostDetail = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 pb-20">
-      <header className="bg-primary text-white py-6 px-4">
-        <div className="flex items-center justify-between mb-4">
+      {/* Header with consistent styling */}
+      <header className="bg-primary text-white py-4 px-4">
+        <div className="flex items-center gap-4 mb-3">
           <Button
             variant="ghost"
             size="icon"
-            className="text-white"
             onClick={() => navigate(-1)}
+            className="text-white hover:bg-primary/90"
           >
             <ArrowLeft className="h-6 w-6" />
           </Button>
-          <h1 className="text-xl font-semibold">Post Detail</h1>
-          <div className="w-6" /> {/* Spacer for alignment */}
+          <div className="flex-1">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search posts..."
+                className="w-full py-2 px-4 pr-10 rounded-full text-sm text-gray-900 focus:outline-none"
+              />
+            </div>
+          </div>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="text-white hover:bg-primary/90"
+          >
+            <Bell className="h-6 w-6" />
+          </Button>
         </div>
       </header>
 
