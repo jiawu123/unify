@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { ArrowLeft, BookOpen, User } from "lucide-react";
+import BottomNav from "@/components/BottomNav";
 
 const NewPost = () => {
   const navigate = useNavigate();
@@ -130,6 +131,8 @@ const NewPost = () => {
           </Button>
         </div>
       </form>
+
+      <BottomNav />
     </div>
   );
 };

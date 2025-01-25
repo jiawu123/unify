@@ -11,7 +11,7 @@ const BottomNav = () => {
       <div className="flex justify-between items-center max-w-screen-xl mx-auto">
         <Link
           to="/"
-          className={`flex flex-col items-center ${
+          className={`flex flex-col items-center transition-transform hover:scale-110 ${
             isActive("/") ? "text-primary" : "text-gray-600"
           }`}
         >
@@ -20,7 +20,7 @@ const BottomNav = () => {
         </Link>
         <Link
           to="/groups"
-          className={`flex flex-col items-center ${
+          className={`flex flex-col items-center transition-transform hover:scale-110 ${
             isActive("/groups") ? "text-primary" : "text-gray-600"
           }`}
         >
@@ -29,15 +29,15 @@ const BottomNav = () => {
         </Link>
         <Link
           to="/new-post"
-          className="flex flex-col items-center -mt-8 relative"
+          className="flex flex-col items-center -mt-8 relative transition-transform hover:scale-110"
         >
-          <div className="bg-primary rounded-full p-4 shadow-lg">
+          <div className="bg-primary rounded-full p-4 shadow-lg hover:bg-primary/90">
             <Plus className="w-6 h-6 text-white" />
           </div>
         </Link>
         <Link
           to="/saved"
-          className={`flex flex-col items-center ${
+          className={`flex flex-col items-center transition-transform hover:scale-110 ${
             isActive("/saved") ? "text-primary" : "text-gray-600"
           }`}
         >
@@ -46,7 +46,7 @@ const BottomNav = () => {
         </Link>
         <Link
           to="/profile"
-          className={`flex flex-col items-center ${
+          className={`flex flex-col items-center transition-transform hover:scale-110 ${
             isActive("/profile") ? "text-primary" : "text-gray-600"
           }`}
         >

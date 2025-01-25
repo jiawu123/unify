@@ -3,6 +3,7 @@ import { Bell, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PostCard from "@/components/PostCard";
 import { useNavigate } from "react-router-dom";
+import BottomNav from "@/components/BottomNav";
 
 const SavedPosts = () => {
   const navigate = useNavigate();
@@ -70,6 +71,8 @@ const SavedPosts = () => {
           )}
         </div>
       </main>
+
+      <BottomNav />
     </div>
   );
 };
