@@ -1,5 +1,6 @@
-import { Star, Users, ThumbsUp, MessageSquare } from "lucide-react";
+import { Star, Users, ThumbsUp, MessageSquare, BookOpen } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 interface CourseCardProps {
   code: string;
@@ -24,12 +25,17 @@ const CourseCard = ({
     <Card className="hover:shadow-lg transition-shadow">
       <div className="p-4">
         <div className="flex justify-between items-start mb-2">
-          <div>
-            <h3 className="text-lg font-semibold text-primary">{code}</h3>
-            <h4 className="text-xl font-bold">{title}</h4>
+          <div className="flex gap-3">
+            <div className="bg-primary/10 rounded-full p-2 h-fit">
+              <BookOpen className="w-5 h-5 text-primary" />
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-primary">{code}</h3>
+              <h4 className="text-xl font-bold">{title}</h4>
+            </div>
           </div>
-          <div className="flex items-center">
-            <Star className="w-5 h-5 text-yellow-400 fill-current" />
+          <div className="flex items-center bg-yellow-50 px-2 py-1 rounded">
+            <Star className="w-4 h-4 text-yellow-400 fill-current" />
             <span className="ml-1 font-semibold">{rating}</span>
           </div>
         </div>
@@ -44,15 +50,20 @@ const CourseCard = ({
             </span>
           ))}
         </div>
-        <div className="flex justify-between text-gray-500 text-sm">
-          <div className="flex items-center gap-1">
-            <Users className="w-4 h-4" />
-            <span>{students} students</span>
+        <div className="flex justify-between items-center">
+          <div className="flex gap-4 text-gray-500 text-sm">
+            <div className="flex items-center gap-1">
+              <Users className="w-4 h-4" />
+              <span>{students}</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <ThumbsUp className="w-4 h-4" />
+              <span>{likes}</span>
+            </div>
           </div>
-          <div className="flex items-center gap-1">
-            <ThumbsUp className="w-4 h-4" />
-            <span>{likes} likes</span>
-          </div>
+          <Button variant="outline" size="sm">
+            View Details
+          </Button>
         </div>
       </div>
     </Card>

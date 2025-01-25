@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Search, TrendingUp, ThumbsUp, MessageSquare } from "lucide-react";
+import { Search, TrendingUp, Sparkles } from "lucide-react";
 import CourseCard from "../components/CourseCard";
+import PostCard from "../components/PostCard";
 import BottomNav from "../components/BottomNav";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -28,31 +29,30 @@ const Index = () => {
       likes: 45,
       tags: ["Writing", "Required"],
     },
-    {
-      code: "MATH 124",
-      title: "Calculus with Analytic Geometry I",
-      professor: "Michael Chen",
-      rating: 4.0,
-      students: 245,
-      likes: 67,
-      tags: ["Math", "STEM"],
-    },
   ];
 
   const trendingPosts = [
     {
-      title: "Best CS courses for beginners?",
+      title: "CSE 142 Study Group Formation",
+      content: "Looking for students interested in forming a study group for CSE 142. We'll meet twice a week to work on programming assignments and prepare for exams.",
       author: "TechStudent",
+      authorCredibility: 85,
       likes: 45,
       comments: 23,
-      tags: ["Computer Science", "Advice"],
+      tags: ["Study Group", "CSE 142", "Programming"],
+      timestamp: "2h ago",
+      type: "course" as const,
     },
     {
-      title: "Study group for MATH 124",
-      author: "MathWhiz",
-      likes: 32,
+      title: "Professor Johnson's Teaching Style",
+      content: "Just finished ENGL 131 with Prof. Johnson. Her teaching style is very engaging and she provides detailed feedback on essays. Highly recommend!",
+      author: "WritingPro",
+      authorCredibility: 92,
+      likes: 67,
       comments: 15,
-      tags: ["Math", "Study Group"],
+      tags: ["Professor Review", "ENGL 131"],
+      timestamp: "5h ago",
+      type: "professor" as const,
     },
   ];
 
@@ -77,46 +77,24 @@ const Index = () => {
       <main className="container mx-auto px-4 py-6">
         <section className="mb-8">
           <div className="flex items-center gap-2 mb-4">
-            <TrendingUp className="text-primary h-5 w-5" />
-            <h2 className="text-xl font-semibold">Trending Posts</h2>
+            <Sparkles className="text-primary h-5 w-5" />
+            <h2 className="text-xl font-semibold">Recommended Courses</h2>
           </div>
-          <div className="space-y-4">
-            {trendingPosts.map((post, index) => (
-              <Card key={index} className="p-4">
-                <h3 className="font-semibold text-lg mb-2">{post.title}</h3>
-                <div className="flex items-center text-sm text-gray-600 mb-2">
-                  <span>Posted by {post.author}</span>
-                </div>
-                <div className="flex gap-2 mb-3">
-                  {post.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-1 bg-secondary/10 text-secondary rounded-full text-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex gap-4 text-gray-600 text-sm">
-                  <div className="flex items-center gap-1">
-                    <ThumbsUp className="h-4 w-4" />
-                    <span>{post.likes}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <MessageSquare className="h-4 w-4" />
-                    <span>{post.comments}</span>
-                  </div>
-                </div>
-              </Card>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {featuredCourses.map((course) => (
+              <CourseCard key={course.code} {...course} />
             ))}
           </div>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-xl font-semibold mb-4">Recommended Courses</h2>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {featuredCourses.map((course) => (
-              <CourseCard key={course.code} {...course} />
+          <div className="flex items-center gap-2 mb-4">
+            <TrendingUp className="text-primary h-5 w-5" />
+            <h2 className="text-xl font-semibold">Trending Posts</h2>
+          </div>
+          <div className="space-y-4">
+            {trendingPosts.map((post, index) => (
+              <PostCard key={index} {...post} />
             ))}
           </div>
         </section>
