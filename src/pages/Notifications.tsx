@@ -30,10 +30,10 @@ const Notifications = () => {
     },
     {
       id: 3,
-      type: "mention",
+      type: "invitation",
       user: "Mike Wilson",
       avatar: "/placeholder.svg",
-      content: "mentioned you in a discussion about Programming Fundamentals",
+      content: "invited you to join a discussion about CSE 160: Programming Fundamentals",
       timestamp: "1d ago",
       read: true,
       link: "/post/3",
