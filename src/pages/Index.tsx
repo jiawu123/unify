@@ -5,6 +5,7 @@ import PostCard from "../components/PostCard";
 import BottomNav from "../components/BottomNav";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -32,24 +33,26 @@ const Index = () => {
 
   const trendingPosts = [
     {
-      id: 1,
       title: "CSE 142 Study Group Formation",
       content: "Looking for students interested in forming a study group for CSE 142. We'll meet twice a week to work on programming assignments and prepare for exams.",
       author: "TechStudent",
-      credibilityScore: 85,
-      upvotes: 45,
-      category: "Study Group",
+      authorCredibility: 85,
+      likes: 45,
+      comments: 23,
+      tags: ["Study Group", "CSE 142", "Programming"],
       timestamp: "2h ago",
+      type: "course" as const,
     },
     {
-      id: 2,
       title: "Professor Johnson's Teaching Style",
       content: "Just finished ENGL 131 with Prof. Johnson. Her teaching style is very engaging and she provides detailed feedback on essays. Highly recommend!",
       author: "WritingPro",
-      credibilityScore: 92,
-      upvotes: 67,
-      category: "Professor Review",
+      authorCredibility: 92,
+      likes: 67,
+      comments: 15,
+      tags: ["Professor Review", "ENGL 131"],
       timestamp: "5h ago",
+      type: "professor" as const,
     },
   ];
 
@@ -90,8 +93,8 @@ const Index = () => {
             <h2 className="text-xl font-semibold">Trending Posts</h2>
           </div>
           <div className="space-y-4">
-            {trendingPosts.map((post) => (
-              <PostCard key={post.id} post={post} />
+            {trendingPosts.map((post, index) => (
+              <PostCard key={index} {...post} />
             ))}
           </div>
         </section>

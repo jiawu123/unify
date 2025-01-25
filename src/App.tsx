@@ -3,10 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import SignUp from "./pages/auth/SignUp";
-import SignIn from "./pages/auth/SignIn";
-import VerifyEmail from "./pages/auth/VerifyEmail";
+import Index from "./pages/Index";
 
 const queryClient = new QueryClient();
 
@@ -17,10 +14,11 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/auth/sign-up" element={<SignUp />} />
-          <Route path="/auth/sign-in" element={<SignIn />} />
-          <Route path="/auth/verify-email" element={<VerifyEmail />} />
+          <Route path="/" element={<Index />} />
+          <Route path="/search" element={<Index />} />
+          <Route path="/courses" element={<Index />} />
+          <Route path="/groups" element={<Index />} />
+          <Route path="/menu" element={<Index />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

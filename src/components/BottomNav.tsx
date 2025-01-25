@@ -1,4 +1,4 @@
-import { Home, Search, BookOpen, Users, User } from "lucide-react";
+import { Home, Search, BookOpen, Users, Menu } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const BottomNav = () => {
@@ -46,13 +46,13 @@ const BottomNav = () => {
           <span className="text-xs mt-1">Groups</span>
         </Link>
         <Link
-          to="/profile"
+          to="/menu"
           className={`flex flex-col items-center ${
-            isActive("/profile") ? "text-primary" : "text-gray-600"
+            isActive("/menu") ? "text-primary" : "text-gray-600"
           }`}
         >
-          <User className="w-6 h-6" />
-          <span className="text-xs mt-1">Profile</span>
+          <Menu className="w-6 h-6" />
+          <span className="text-xs mt-1">Menu</span>
         </Link>
       </div>
     </nav>
