@@ -28,6 +28,16 @@ const Notifications = () => {
       read: true,
       link: "/post/3",
     },
+    {
+      id: 4,
+      type: "friend_request",
+      user: "Emily Zhang",
+      avatar: "/placeholder.svg",
+      content: "sent you a friend request",
+      timestamp: "3h ago",
+      read: false,
+      link: "/profile/emily",
+    },
   ];
 
   return (

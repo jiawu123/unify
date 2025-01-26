@@ -1,4 +1,4 @@
-import { Home, Plus, Users, Bookmark, User } from "lucide-react";
+import { Home, MessageCircle, Plus, Bookmark, User } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const BottomNav = () => {
@@ -19,13 +19,13 @@ const BottomNav = () => {
           <span className="text-xs mt-1">Home</span>
         </Link>
         <Link
-          to="/groups"
+          to="/messages"
           className={`flex flex-col items-center transition-transform hover:scale-110 ${
-            isActive("/groups") ? "text-primary" : "text-gray-600"
+            isActive("/messages") ? "text-primary" : "text-gray-600"
           }`}
         >
-          <Users className="w-6 h-6" />
-          <span className="text-xs mt-1">Groups</span>
+          <MessageCircle className="w-6 h-6" />
+          <span className="text-xs mt-1">Messages</span>
         </Link>
         <Link
           to="/new-post"

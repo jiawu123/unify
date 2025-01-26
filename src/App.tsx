@@ -10,6 +10,8 @@ import Profile from "./pages/Profile";
 import CourseDetail from "./pages/CourseDetail";
 import PostDetail from "./pages/PostDetail";
 import Notifications from "./pages/Notifications";
+import Messages from "./pages/Messages";
+import MessageDetail from "./pages/MessageDetail";
 
 const queryClient = new QueryClient();
 
@@ -21,7 +23,8 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/groups" element={<Index />} />
+          <Route path="/messages" element={<Messages />} />
+          <Route path="/message/:id" element={<MessageDetail />} />
           <Route path="/new-post" element={<NewPost />} />
           <Route path="/saved" element={<SavedPosts />} />
           <Route path="/profile" element={<Profile />} />
