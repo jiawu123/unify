@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { Bell, ArrowLeft, Circle } from "lucide-react";
+import { useState } from "react";
+import { Bell, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PostCard from "@/components/PostCard";
 import { useNavigate } from "react-router-dom";
@@ -32,10 +32,6 @@ const SavedPosts = () => {
     },
   ]);
 
-  useEffect(() => {
-    document.title = "unify-winfohackathonproject";
-  }, []);
-
   return (
     <div className="min-h-screen bg-gray-50 pb-20">
       <header className="bg-primary text-white py-6 px-4">
@@ -49,10 +45,10 @@ const SavedPosts = () => {
             >
               <ArrowLeft className="h-6 w-6" />
             </Button>
-            <h1 className="text-2xl font-bold">unify-winfohackathonproject</h1>
+            <h1 className="text-2xl font-bold">Unify</h1>
           </div>
           <Button variant="ghost" size="icon" className="text-white">
-            <Circle className="h-6 w-6" />
+            <Bell className="h-6 w-6" />
           </Button>
         </div>
       </header>
