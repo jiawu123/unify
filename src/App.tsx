@@ -27,7 +27,7 @@ const App = () => (
           <Route path="/messages" element={<Messages />} />
           <Route path="/message/:id" element={<MessageDetail />} />
           <Route path="/new-post" element={<NewPost />} />
-          <Route path="/saved" element={<SavedPosts />} />
+          <Route path="/unify-winfohackathonproject" element={<SavedPosts />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/course/:id" element={<CourseDetail />} />
           <Route path="/post/:id" element={<PostDetail />} />
