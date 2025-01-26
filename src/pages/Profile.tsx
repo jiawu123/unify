@@ -45,24 +45,30 @@ const Profile = () => {
             </Button>
             <h1 className="text-2xl font-bold">Unify</h1>
           </div>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="text-white hover:bg-primary/90"
-          >
-            <Bell className="h-6 w-6" />
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => navigate("/notifications")}
+              className="text-white hover:bg-primary/90"
+            >
+              <Bell className="h-6 w-6" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => navigate("/settings")}
+              className="text-white hover:bg-primary/90"
+            >
+              <Settings className="h-6 w-6" />
+            </Button>
+          </div>
         </div>
       </header>
 
       {/* Profile Section */}
       <div className="container mx-auto px-4 py-6">
         <div className="relative mb-8">
-          <div className="absolute top-4 right-4">
-            <Button variant="ghost" size="icon">
-              <Settings className="h-6 w-6" />
-            </Button>
-          </div>
           <div className="flex flex-col items-center pt-8">
             <Avatar className="h-24 w-24 mb-4">
               <AvatarFallback className="text-2xl">JY</AvatarFallback>

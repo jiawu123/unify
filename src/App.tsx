@@ -12,6 +12,7 @@ import PostDetail from "./pages/PostDetail";
 import Notifications from "./pages/Notifications";
 import Messages from "./pages/Messages";
 import MessageDetail from "./pages/MessageDetail";
+import Settings from "./pages/Settings";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/course/:id" element={<CourseDetail />} />
           <Route path="/post/:id" element={<PostDetail />} />
           <Route path="/notifications" element={<Notifications />} />
+          <Route path="/settings" element={<Settings />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
